@@ -8,12 +8,7 @@ import Display from './../Display';
 import fetchShow from '../../api/fetchShow';
 jest.mock('../../api/fetchShow');
 
-test('renders without errors with no props', () => {
-	render(<Display/>);
-});
-
-test('renders Show component when the button is clicked ', async () => {
-	fetchShow.mockResolvedValueOnce({
+const testFetchShow = {
 		name: 'Test Show Name',
 		image: null,
 		summary: 'Test Show Description',
@@ -39,7 +34,14 @@ test('renders Show component when the button is clicked ', async () => {
 				episodes: [],
 			},
 		],
-	});
+	}
+
+test('renders without errors with no props', () => {
+	render(<Display/>);
+});
+
+test('renders Show component when the button is clicked ', async () => {
+	fetchShow.mockResolvedValueOnce(testFetchShow);
 	
 	// Arrange
 	render(<Display/>);
@@ -51,24 +53,32 @@ test('renders Show component when the button is clicked ', async () => {
 	expect(showComp).toBeInTheDocument();
 });
 
-test('renders show season options matching your data when the button is clicked', async () => {
-	// // Arrange
-	// render(<Display />);
-	// // Act
-	// const button = screen.queryByRole('button');
-	// userEvent.click(button);
-	// // Assert
-	// const seasons = await screen.findAllByTestId('season-option');
-	// expect(seasons).toHaveLength(4);
+test('renders show season options matching your data when the button is clicked', () => {
+	fetchShow.mockResolvedValueOnce(testFetchShow);
+
+	// Arrange
+	render(<Display />);
+	// Act
+	const button = screen.queryByRole('button');
+	userEvent.click(button);
+	// Assert
+	waitFor(() => {
+		const seasons = screen.findAllByTestId('season-option');
+		expect(seasons).toHaveLength(4);
+	});
 });
 
-test('test optional functional prop is called when fetch button is pressed', () => {
-	// const mockDisplayFunc = jest.fn();
-	// // Arrange
-	// render(<Display displayFunc={mockDisplayFunc}/>)
-	// // Act
-	// const button = screen.queryByRole('button');
-	// userEvent.click(button);
-	// // Assert
-	// expect(mockDisplayFunc).toHaveBeenCalled();
+test('test optional functional prop is called when fetch button is pressed', async () => {
+	fetchShow.mockResolvedValueOnce(testFetchShow);
+	const mockDisplayFunc = jest.fn();
+
+	// Arrange
+	render(<Display displayFunc={mockDisplayFunc}/>)
+	// Act
+	const button = screen.queryByRole('button');
+	userEvent.click(button);
+	// Assert
+	await waitFor(() => {
+		expect(mockDisplayFunc).toHaveBeenCalled();
+	});
 });

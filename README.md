@@ -49,8 +49,8 @@ Get the project fired up and start using it as a user would. Try to go through t
 -   [x] Test that the Show component renders when your test data is passed in through show prop and "none" is passed in through selectedSeason prop.
 -   [x] Test that the Loading component displays when null is passed into the show prop (look at the Loading component to see how to test for it's existence)
 -   [x] Test that when your test data is passed through the show prop, the same number of season select options appear as there are seasons within your test data.
--   [ ] Test that when an item is selected, the handleSelect function is called. Look at your code to see how to get access to the select DOM element and [userEvent reference materials](https://testing-library.com/docs/ecosystem-user-event/) to see how to trigger a selection.
--   [ ] Test that the episode component DOES NOT render when the selectedSeason props is "none" and DOES render the episode component when the selectedSeason prop has a valid season index.
+-   [x] Test that when an item is selected, the handleSelect function is called. Look at your code to see how to get access to the select DOM element and [userEvent reference materials](https://testing-library.com/docs/ecosystem-user-event/) to see how to trigger a selection.
+-   [x] Test that the episode component DOES NOT render when the selectedSeason props is "none" and DOES render the episode component when the selectedSeason prop has a valid season index.
 
 ### The Display Component
 
@@ -58,9 +58,9 @@ Get the project fired up and start using it as a user would. Try to go through t
 
 -   [x] Test that the Display component renders without any passed in props.
 -   [x] Rebuild or copy the show test data element as used in the previous set of tests.
--   [ ] Test that when the fetch button is pressed, the show component will display. Make sure to account for the api call and change of state in building your test.
--   [ ] Test that when the fetch button is pressed, the amount of select options rendered is equal to the amount of seasons in your test data.
--   [ ] Notice the optional functional prop passed in to the Display component client code. Test that when the fetch button is pressed, this function is called.
+-   [x] Test that when the fetch button is pressed, the show component will display. Make sure to account for the api call and change of state in building your test.
+-   [x] Test that when the fetch button is pressed, the amount of select options rendered is equal to the amount of seasons in your test data.
+-   [x] Notice the optional functional prop passed in to the Display component client code. Test that when the fetch button is pressed, this function is called.
 
 ### Stretch goals
 
@@ -72,7 +72,7 @@ Get the project fired up and start using it as a user would. Try to go through t
 
 ### Submission Format
 
--   [ ] If this is your first time connecting a submission, authorize your github account within the codegrade assignment.
--   [ ] Connect your fork to Codegrade using the "Connect Git" button.
--   [ ] Find your newly created fork from the list and push your work to main.
--   [ ] Check this video for details: www.youtube.com/watch?v=fC2BO7dI6IQ
+-   [x] If this is your first time connecting a submission, authorize your github account within the codegrade assignment.
+-   [x] Connect your fork to Codegrade using the "Connect Git" button.
+-   [x] Find your newly created fork from the list and push your work to main.
+-   [x] Check this video for details: www.youtube.com/watch?v=fC2BO7dI6IQ
